@@ -1,7 +1,5 @@
 .contact-badge {
   @include flexy(column, space-between);
-  height: 40%;
-  max-width: 320px;
 
   .socials {
     width: 100%;

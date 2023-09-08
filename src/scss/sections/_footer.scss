@@ -1,0 +1,45 @@
+.footer {
+  padding: 40px 0px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 4%;
+    left: 0;
+
+    width: 100px;
+    height: 160px;
+
+    background: url('../img/footer/decoLeft.png') center/cover no-repeat;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 60px;
+    height: 90px;
+
+    background: url('../img/footer/decoRight.png') center/contain no-repeat;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  .h2 {
+    padding-bottom: 20px;
+  }
+
+  &__title {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .contact-badge {
+    padding-top: 20px;
+    height: 235px;
+  }
+}
