@@ -1,0 +1,16 @@
+// Base
+@import './normalize';
+@import './vars';
+@import './mixins';
+@import './base';
+
+// Sections
+@import './sections/header';
+@import './sections/first';
+@import './sections/sertificates';
+@import './sections/whyMe';
+@import './sections/reviews';
+@import './sections/services';
+@import './sections/results';
+@import './sections/faq';
+@import './sections/footer';

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'berold';
+  /* Соответствует значению "почти" bold )) */
+  src: url('../font/berold.woff') format('woff'),
+    url('../font/berold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'openSans';
+  src: local('Open Sans'), url('../font/openSans.ttf') format('ttf'),
+    url('../font/openSans.woff') format('woff'),
+    url('../font/openSans.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'openSans';
+  font-weight: 400;
+}
+
+.stop-scroll {
+  overflow: hidden;
+}
