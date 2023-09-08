@@ -377,8 +377,6 @@ html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 40%;
-  max-width: 320px;
 }
 .contact-badge .socials {
   width: 100%;
@@ -422,6 +420,7 @@ html {
   font-size: 1.2857142857rem;
   line-height: 1.7857142857rem;
   font-weight: 600;
+  text-align: center;
   color: #8569af;
 }
 
@@ -516,6 +515,14 @@ html {
   line-height: 1.6428571429rem;
   font-weight: 600;
 }
+.header .contact-badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 40%;
+  max-width: 320px;
+}
 
 @media (max-width: 767px) and (orientation: landscape) {
   .header .nav_active {
@@ -529,4 +536,41 @@ html {
 .first {
   height: 600px;
   border: 2px solid red;
+}
+
+.footer {
+  padding: 40px 0px;
+  position: relative;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 0;
+  width: 100px;
+  height: 160px;
+  background: url("../img/footer/decoLeft.png") center/cover no-repeat;
+}
+.footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 90px;
+  background: url("../img/footer/decoRight.png") center/contain no-repeat;
+}
+.footer a {
+  text-decoration: none;
+}
+.footer .h2 {
+  padding-bottom: 20px;
+}
+.footer__title {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.footer .contact-badge {
+  padding-top: 20px;
+  height: 235px;
 }/*# sourceMappingURL=main.css.map */
