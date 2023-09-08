@@ -39,9 +39,7 @@
   window.addEventListener('resize', checkCurrentWidth);
 })();
 
-/*               SLIDER                 */
-/* this is my code I was using in Tattoo web-site, it shall be refactored;
-const swiperPortfolio = new Swiper('.portfolio-bottom__swiper', {
+const swiperPortfolio = new Swiper('.sertificates__swiper', {
   //direction: 'horizontal',
   loop: true,
   slidesPerView: 1,
@@ -52,7 +50,7 @@ const swiperPortfolio = new Swiper('.portfolio-bottom__swiper', {
   spaceBetween: 20,
   speed: 1000,
   autoplay: {
-    delay: 4000
+    delay: 4000,
   },
 
   navigation: {
@@ -60,4 +58,3 @@ const swiperPortfolio = new Swiper('.portfolio-bottom__swiper', {
     prevEl: '.custom-prev',
   },
 });
-*/
