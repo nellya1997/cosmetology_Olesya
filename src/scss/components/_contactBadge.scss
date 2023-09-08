@@ -1,0 +1,40 @@
+.contact-badge {
+  @include flexy(column, space-between);
+  height: 40%;
+  max-width: 320px;
+
+  .socials {
+    width: 100%;
+    @include flexy(row, space-between);
+  }
+
+  &__item {
+    color: $mainTextColor;
+    font-size: rem(14px);
+    line-height: rem(19px);
+    @include flexy(row, center, flex-start);
+    gap: 11px;
+  }
+
+  &__gift {
+    @include flexy();
+    gap: 13px;
+    font-weight: 600;
+
+    div {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+
+        width: 26px;
+        height: 26px;
+
+        background: url('../img/header/cursor.png') 100%/100% no-repeat;
+      }
+    }
+  }
+}

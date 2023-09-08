@@ -33,3 +33,7 @@ html {
 .stop-scroll {
   overflow: hidden;
 }
+
+.container {
+  @include centry(80%);
+}

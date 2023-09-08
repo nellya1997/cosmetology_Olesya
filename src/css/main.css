@@ -367,8 +367,66 @@ html {
   overflow: hidden;
 }
 
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.contact-badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 40%;
+  max-width: 320px;
+}
+.contact-badge .socials {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-badge__item {
+  color: #453b4b;
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 11px;
+}
+.contact-badge__gift {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  font-weight: 600;
+}
+.contact-badge__gift div {
+  position: relative;
+}
+.contact-badge__gift div::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 26px;
+  height: 26px;
+  background: url("../img/header/cursor.png") 100%/100% no-repeat;
+}
+
+.h2 {
+  font-size: 1.2857142857rem;
+  line-height: 1.7857142857rem;
+  font-weight: 600;
+  color: #8569af;
+}
+
 .burger {
-  width: 24px;
+  width: 38px;
   height: 20px;
   position: absolute;
   right: 12vw;
@@ -378,19 +436,19 @@ html {
   cursor: pointer;
 }
 .burger span {
-  width: 24px;
-  height: 3px;
+  width: 38px;
+  height: 2px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #4b4242;
+  background-color: #8569af;
 }
 .burger span:nth-of-type(2) {
-  top: calc(50% - 7px);
+  top: calc(50% - 8px);
 }
 .burger span:nth-of-type(3) {
-  top: calc(50% + 7px);
+  top: calc(50% + 8px);
 }
 .burger_active span:nth-of-type(1) {
   display: none;
@@ -458,51 +516,6 @@ html {
   line-height: 1.6428571429rem;
   font-weight: 600;
 }
-.header .contact-badge {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 40%;
-  max-width: 320px;
-}
-.header .contact-badge .socials {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.header .contact-badge__item {
-  color: #453b4b;
-  font-size: 1rem;
-  line-height: 1.3571428571rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 11px;
-}
-.header .contact-badge__gift {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 13px;
-  font-weight: 600;
-}
-.header .contact-badge__gift div {
-  position: relative;
-}
-.header .contact-badge__gift div::before {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 26px;
-  height: 26px;
-  background: url("../img/header/cursor.png") 100%/100% no-repeat;
-}
 
 @media (max-width: 767px) and (orientation: landscape) {
   .header .nav_active {
@@ -512,4 +525,8 @@ html {
   .header .contact-badge {
     height: 220px;
   }
+}
+.first {
+  height: 600px;
+  border: 2px solid red;
 }/*# sourceMappingURL=main.css.map */
