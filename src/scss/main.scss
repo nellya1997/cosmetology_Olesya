@@ -5,6 +5,10 @@
 @import './functions';
 @import './base';
 
+//Components
+@import './components/contactBadge';
+@import './components/h2';
+
 // Sections
 @import './sections/header';
 @import './sections/first';
