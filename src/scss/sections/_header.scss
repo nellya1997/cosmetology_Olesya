@@ -61,23 +61,99 @@
   .nav {
     transform: translateY(-100vh);
     transition: transform 0.5s;
-    padding: 0% 10% 35px 10%;
     overflow-y: initial;
 
+    .container {
+      @include centry(79.7%);
+      height: 100%;
+    }
+
     &_active {
+      height: 100vh;
       position: absolute;
       top: 0px;
       right: 0px;
       left: 0px;
       z-index: 2;
-      padding-top: 20px;
+      padding-top: 80px;
       transform: translateY(0vh);
       transition: transform 0.4s;
 
-      background-image: url('../img/header/background.png');
+      background-image: url('../img/header/background.jpg');
       background-repeat: no-repeat;
       background-position: left;
       background-size: cover;
+    }
+
+    &__list {
+      height: max-content;
+      padding-bottom: 15px;
+
+      li {
+        padding-bottom: 20px;
+      }
+    }
+
+    &__link {
+      font-size: rem(20px);
+      line-height: rem(23px);
+      font-weight: 600;
+    }
+  }
+
+  .contact-badge {
+    @include flexy(column, space-between);
+    height: 40%;
+    max-width: 320px;
+
+    .socials {
+      width: 100%;
+      @include flexy(row, space-between);
+    }
+
+    &__item {
+      color: $mainTextColor;
+      font-size: rem(14px);
+      line-height: rem(19px);
+      @include flexy(row, center, flex-start);
+      gap: 11px;
+    }
+
+    &__gift {
+      @include flexy();
+      gap: 13px;
+      font-weight: 600;
+
+      div {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          right: -2px;
+
+          width: 26px;
+          height: 26px;
+
+          background: url('../img/header/cursor.png') 100%/100% no-repeat;
+        }
+      }
+    }
+  }
+}
+
+//mobile menu - orientation 'landscape'
+@media (max-width: 767px) and (orientation: landscape) {
+  .header {
+    .nav {
+      &_active {
+        height: 100vh;
+        overflow-y: scroll;
+      }
+    }
+    .contact-badge {
+      height: 220px;
     }
   }
 }

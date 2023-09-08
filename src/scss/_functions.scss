@@ -1,0 +1,9 @@
+$root-FS: 14px;
+
+@function rem($size) {
+  @return calc($size / $root-FS * 1rem);
+}
+
+.howToUse {
+  font-size: rem (24px);
+}
