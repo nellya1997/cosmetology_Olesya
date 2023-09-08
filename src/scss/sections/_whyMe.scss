@@ -1,0 +1,30 @@
+.whyMe {
+  padding: 1em 0;
+
+  &__content {
+    padding: 2em 0;
+    ul {
+      @include flexy(column);
+      gap: 2.1em;
+    }
+
+    li {
+      @include flexy(row, normal, center);
+      gap: 2em;
+    }
+
+    img {
+      width: 68px;
+      height: 68px;
+    }
+
+    p {
+      font-size: rem(14px);
+      line-height: rem(19px);
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
