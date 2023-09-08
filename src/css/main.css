@@ -364,6 +364,10 @@ html {
   font-weight: 400;
 }
 
+body {
+  background-color: blue;
+}
+
 .stop-scroll {
   overflow: hidden;
 }
