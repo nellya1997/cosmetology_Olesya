@@ -518,13 +518,62 @@
         </div>
       </section>
 
-      <section class="services"></section>
+      <section class="services">
+        <div class="container">
+          <h2 class="h2">Услуги</h2>
+          <p class="services__title">Выбери место процедуры</p>
+
+          <div class="btnsBlock">
+            <button class="toFace"></button>
+            <button class="toHands"></button>
+          </div>
+
+          <div class="services__main">
+            <div class="services__face">
+              <picture class="services__face-picture">
+                <source
+                  type="image/webp"
+                  media="(min-width: 1023px)"
+                  srcset=""
+                  alt="процедуры для лица"
+                />
+                <source
+                  type="image/jpg"
+                  media="(min-width: 1023px)"
+                  srcset=""
+                  alt="процедуры для лица"
+                />
+                <source
+                  type="image/webp"
+                  media="(min-width: 767px)"
+                  srcset=""
+                  alt="процедуры для лица"
+                />
+                <source
+                  type="image/jpg"
+                  media="(min-width: 767px)"
+                  srcset=""
+                  alt="процедуры для лица"
+                />
+                <img
+                  src="./src/img/services/face-320.png"
+                  alt="процедуры для лица"
+                />
+              </picture>
+
+              <div class="services__face-sign">
+                <button></button>
+              </div>
+            </div>
+            <div class="services__guide"></div>
+          </div>
+        </div>
+      </section>
 
       <section class="results">
         <div class="container">
           <h2 class="h2">Результаты</h2>
           <p class="results__title">Фотографии моих довольных клиентов</p>
-
           <div class="results__slider">
             <div class="swiper results__swiper">
               <div class="swiper-wrapper">
@@ -765,10 +814,10 @@
               </div>
             </div>
           </div>
-
           <img class="swipeIcon" src="./src/img/swipe.svg" alt="слайдер" />
         </div>
       </section>
+
       <section class="faq"></section>
     </main>
 
