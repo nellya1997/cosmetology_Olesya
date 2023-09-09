@@ -565,7 +565,17 @@ html {
 }
 
 .whyMe {
-  padding: 1em 0;
+  padding: 3.5em 0;
+  position: relative;
+}
+.whyMe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 70px;
+  background: url("../img/whyMe/decoRight.png") center/cover no-repeat;
 }
 .whyMe__content {
   padding: 2em 0;
