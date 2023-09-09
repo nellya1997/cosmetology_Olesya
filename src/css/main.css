@@ -613,6 +613,7 @@ html {
 
 .reviews {
   padding: 2.5em 0;
+  background: url("../img/reviews/background.jpg") center/cover no-repeat;
 }
 .reviews .h2 {
   padding-bottom: 1.5em;
@@ -641,6 +642,51 @@ html {
      object-fit: contain;
 }
 .reviews .swipeIcon {
+  margin: 0.5em auto;
+}
+
+.results {
+  padding: 2.5em 0;
+  position: relative;
+}
+.results::before {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 70px;
+  height: 100px;
+  background: url("../img/results/decoLeft.png") center/cover no-repeat;
+}
+.results .h2 {
+  padding-bottom: 1.5em;
+}
+.results__title {
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.results__slider {
+  margin: 0 auto;
+  width: 83%;
+  background-color: black;
+}
+.results .swiper-slide {
+  align-self: center;
+}
+.results picture {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.results picture img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.results .swipeIcon {
   margin: 0.5em auto;
 }
 

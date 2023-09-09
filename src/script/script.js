@@ -67,3 +67,17 @@ const swiperReviews = new Swiper('.reviews__swiper', {
     delay: 4000,
   },
 });
+
+const swiperResults = new Swiper('.results__swiper', {
+  loop: true,
+  slidesPerView: 1,
+  allowSlideNext: true,
+  allowSlidePrev: true,
+  allowTouchMove: true,
+  grabCursor: true,
+  spaceBetween: 20,
+  speed: 1000,
+  autoplay: {
+    delay: 4000,
+  },
+});
