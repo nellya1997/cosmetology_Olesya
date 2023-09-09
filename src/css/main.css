@@ -359,8 +359,10 @@ html {
   font-size: 14px;
   font-weight: 400;
   color: #453b4b;
+  scrollbar-gutter: stable;
 }
 
+/*            COMMON CLASSES              */
 .stop-scroll {
   overflow: hidden;
 }
@@ -368,6 +370,10 @@ html {
 .container {
   margin: 0 auto;
   width: 80%;
+}
+
+.swipeIcon {
+  display: block;
 }
 
 .contact-badge {
@@ -560,7 +566,6 @@ html {
      object-fit: contain;
 }
 .sertificates .swipeIcon {
-  display: block;
   margin: 0.5em auto;
 }
 
@@ -604,6 +609,39 @@ html {
 }
 .whyMe__content span {
   font-weight: 600;
+}
+
+.reviews {
+  padding: 2.5em 0;
+}
+.reviews .h2 {
+  padding-bottom: 1.5em;
+}
+.reviews__title {
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.reviews__slider {
+  background-color: black;
+}
+.reviews .swiper-slide {
+  align-self: center;
+}
+.reviews picture {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.reviews picture img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.reviews .swipeIcon {
+  margin: 0.5em auto;
 }
 
 .footer {

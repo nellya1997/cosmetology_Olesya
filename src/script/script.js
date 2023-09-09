@@ -39,7 +39,7 @@
   window.addEventListener('resize', checkCurrentWidth);
 })();
 
-const swiperPortfolio = new Swiper('.sertificates__swiper', {
+const swiperSertificates = new Swiper('.sertificates__swiper', {
   //direction: 'horizontal',
   loop: true,
   slidesPerView: 1,
@@ -52,9 +52,18 @@ const swiperPortfolio = new Swiper('.sertificates__swiper', {
   autoplay: {
     delay: 4000,
   },
+});
 
-  navigation: {
-    nextEl: '.custom-next',
-    prevEl: '.custom-prev',
+const swiperReviews = new Swiper('.reviews__swiper', {
+  loop: true,
+  slidesPerView: 1,
+  allowSlideNext: true,
+  allowSlidePrev: true,
+  allowTouchMove: true,
+  grabCursor: true,
+  spaceBetween: 20,
+  speed: 1000,
+  autoplay: {
+    delay: 4000,
   },
 });
