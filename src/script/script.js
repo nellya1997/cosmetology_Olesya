@@ -81,3 +81,61 @@ const swiperResults = new Swiper('.results__swiper', {
     delay: 4000,
   },
 });
+
+//faq
+const switchElements = document.querySelectorAll('.faq__switch')
+const imgElements = document.querySelectorAll('.faq__pluse-btn')
+const listElements = document.querySelectorAll('.faq__list')
+
+switchElements.forEach(function (switchElement, index) {
+	switchElement.addEventListener('click', function () {
+		toggleList(index)
+		imgElements[index].classList.toggle('rotated')
+	})
+})
+
+imgElements.forEach(function (imgElement, index) {
+	imgElement.addEventListener('click', function () {
+		toggleList(index)
+		imgElement.classList.toggle('rotated')
+	})
+})
+
+function toggleList(index) {
+	listElements.forEach(function (listElement, listIndex) {
+		if (listIndex === index) {
+			listElement.classList.toggle('show')
+		} else {
+			listElement.classList.remove('show')
+		}
+	})
+}
+
+window.addEventListener('resize', function () {
+	listElements.forEach(function (listElement) {
+		listElement.classList.add('show')
+	})
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+	const faqQuestions = document.querySelectorAll('.faq__question')
+	const showMoreButton = document.getElementById('showMoreButton')
+
+	for (let i = 4; i < faqQuestions.length; i++) {
+		faqQuestions[i].style.display = 'none'
+	}
+
+	showMoreButton.addEventListener('click', function () {
+		for (let i = 4; i < faqQuestions.length; i++) {
+			faqQuestions[i].style.display = 'block'
+		}
+
+		showMoreButton.style.display = 'none'
+	})
+
+	if (faqQuestions.length > 4) {
+		showMoreButton.style.display = 'block'
+	} else {
+		showMoreButton.style.display = 'none'
+	}
+})
