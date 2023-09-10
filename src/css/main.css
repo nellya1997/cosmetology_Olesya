@@ -750,6 +750,110 @@ html {
   margin: 0.5em auto;
 }
 
+.faq {
+  padding: 25px;
+}
+.faq__title {
+  color: #8569af;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+.faq__list {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.6s ease;
+}
+.faq__list.show {
+  max-height: 1000px;
+  opacity: 1;
+}
+.faq__list-item {
+  margin-bottom: 7px;
+  font-size: 14px;
+  position: relative;
+  padding-left: 15px;
+}
+.faq__list-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #825890;
+  left: 0px;
+  top: 6px;
+  border-radius: 50%;
+}
+.faq__list-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.faq__switch {
+  cursor: pointer;
+}
+.faq__content {
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s ease;
+  margin-bottom: 15px;
+}
+.faq__content h3 {
+  font-size: 16px;
+  max-width: 85%;
+}
+.faq__pluse-btn {
+  display: block;
+  margin-right: 13px;
+  position: relative;
+  width: 20px;
+  height: 18px;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+.faq__pluse-btn::before {
+  content: "";
+  width: 18px;
+  height: 1.5px;
+  background-color: #825890;
+  position: absolute;
+  left: 0;
+  top: 11px;
+  transform: translateY(-50%);
+}
+.faq__pluse-btn::after {
+  content: "";
+  width: 18px;
+  height: 1.5px;
+  background-color: #825890;
+  position: absolute;
+  left: 0;
+  top: 11px;
+  transform: rotate(90deg) translate(-6%, 0%);
+}
+.faq__pluse-btn.rotated {
+  transform: rotate(45deg);
+}
+.faq #showMoreButton {
+  text-decoration: none;
+  border: none;
+  background: none;
+  color: #453b4b;
+  font-family: Open Sans;
+  font-size: 14px;
+  text-decoration-line: underline;
+  text-align: center;
+  margin: 10px auto 0;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+
 .footer {
   padding: 2.5em 0;
   position: relative;
