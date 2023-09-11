@@ -1,6 +1,10 @@
 .services {
   padding: 2.5em 0;
 
+  .container {
+    width: unset;
+  }
+
   .h2 {
     padding-bottom: 1.5em;
   }
@@ -19,12 +23,16 @@
   .services__face {
     position: relative;
 
+    width: max-content;
+    display: block;
+    margin: 0 auto;
+
     border: 2px solid blue;
 
     &-picture {
       display: inline-block;
       width: 100%;
-      height: 46vh;
+      height: 43vh;
 
       img {
         width: 100%;
@@ -33,6 +41,85 @@
       }
     }
 
+    &-sign {
+      button {
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        background-color: #8569af;
+        border: none;
+
+        position: absolute;
+        // I did not forget to delete this - it is necessary to save here:
+        top: 0;
+        left: 0;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 60px;
+          height: 1px;
+          background-color: #453b4b;
+
+          position: absolute;
+          //left: 30px;
+          left: 180%;
+          top: -10px;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 1px;
+          background-color: #453b4b;
+
+          position: absolute;
+          left: 24px;
+          top: 0;
+
+          transform-origin: left;
+
+          transform: rotate(330deg);
+        }
+      }
+
+      .toForehead {
+        //top: 70px;
+        top: 25%;
+        left: 10%;
+      }
+
+      .toMesotherapy {
+        top: 9%;
+        left: 77%;
+        transform: scale(-1, 1);
+      }
+
+      .toEye {
+        top: 46%;
+        left: 6%;
+      }
+
+      .toLeftCheek {
+        top: 45%;
+        left: 87%;
+        transform: scale(-1, 1);
+      }
+
+      .toNose {
+        top: 56%;
+        left: 83%;
+        transform: scale(-1, 1);
+      }
+
+      .toLips {
+        top: 61%;
+        left: 11%;
+      }
+    }
+
+    /*
     &-sign {
       width: 33%;
       height: 3px;
@@ -69,5 +156,6 @@
         top: -5%;
       }
     }
+    */
   }
 }

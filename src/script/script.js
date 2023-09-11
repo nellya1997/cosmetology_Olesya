@@ -81,3 +81,11 @@ const swiperResults = new Swiper('.results__swiper', {
     delay: 4000,
   },
 });
+
+const faceContainer = document.querySelector('.services__face-sign');
+
+const btn = document.querySelector('.services__face-sign button');
+
+console.log(faceContainer);
+
+console.log(btn);
