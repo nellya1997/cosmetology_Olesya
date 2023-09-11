@@ -645,6 +645,10 @@ html {
   margin: 0.5em auto;
 }
 
+:root {
+  --faceSignWidth: 60px;
+}
+
 .services {
   padding: 2.5em 0;
 }
@@ -670,44 +674,6 @@ html {
   display: block;
   margin: 0 auto;
   border: 2px solid blue;
-  /*
-  &-sign {
-    width: 33%;
-    height: 3px;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    background-color: red;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-
-      display: block;
-      width: 20%;
-      height: 3px;
-      background-color: green;
-
-      transform-origin: left;
-
-      transform: rotate(150deg);
-    }
-
-    button {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background-color: #8569af;
-
-      position: absolute;
-      left: 5%;
-      top: -5%;
-    }
-  }
-  */
 }
 .services .services__face-picture {
   display: inline-block;
@@ -733,7 +699,7 @@ html {
 .services .services__face-sign button::before {
   content: "";
   display: block;
-  width: 60px;
+  width: var(--faceSignWidth);
   height: 1px;
   background-color: #453b4b;
   position: absolute;
@@ -771,15 +737,20 @@ html {
   transform: scale(-1, 1);
 }
 .services .services__face-sign .toNose {
-  top: 56%;
-  left: 83%;
+  top: 54%;
+  left: 78%;
   transform: scale(-1, 1);
 }
 .services .services__face-sign .toLips {
   top: 61%;
-  left: 11%;
+  left: 13%;
 }
 
+@media (min-width: 767px) {
+  .services .services__face-picture {
+    height: 50vh;
+  }
+}
 .results {
   padding: 2.5em 0;
   position: relative;

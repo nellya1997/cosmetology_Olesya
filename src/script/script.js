@@ -82,13 +82,26 @@ const swiperResults = new Swiper('.results__swiper', {
   },
 });
 
-const faceContainer = document.querySelector('.services__face-sign');
+//services
+const servicesWidth = () => {
+  function previousWidthCalc() {
+    //I will define line under the button in respect of picture's size which is stabled by 43vh
+    const container = document.querySelector('.services__face');
+    //width of the line is 1/4 of the picture height
+    let signWidth = Math.round((container.offsetHeight / 100) * 23);
 
-const btn = document.querySelector('.services__face-sign button');
+    document.documentElement.style.setProperty(
+      '--faceSignWidth',
+      `${signWidth + 'px'}`,
+    );
+  }
 
-console.log(faceContainer);
+  window.onload = previousWidthCalc();
 
-console.log(btn);
+  window.addEventListener('resize', previousWidthCalc);
+};
+
+servicesWidth();
 
 //faq
 const switchElements = document.querySelectorAll('.faq__switch');
