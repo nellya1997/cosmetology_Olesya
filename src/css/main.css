@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -367,6 +368,78 @@ html {
   overflow: hidden;
 }
 
+.modal {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  padding: 1.5em 0em;
+  border: 2px solid red;
+}
+.modal__close {
+  width: 19px;
+  height: 19px;
+  position: relative;
+  float: right;
+  padding: 1em 4em 0em 0em;
+}
+.modal__close span {
+  width: 19px;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #8569af;
+}
+.modal__close span:first-child {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(45deg);
+  transition: transform 0.2s;
+}
+.modal__close span:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(-45deg);
+  transition: transform 0.2s;
+}
+.modal .h2 {
+  padding-top: 2em;
+}
+.modal .service-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .service-block__left {
+  width: 65%;
+}
+.modal .service-block__h3 {
+  font-size: 1.2857142857rem;
+  line-height: 1.5714285714rem;
+  font-weight: 600;
+  color: #8569af;
+}
+.modal .service-block__text {
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  font-weight: 400;
+  color: #8f8d90;
+}
+.modal .service-block__price {
+  font-size: 1.1428571429rem;
+  line-height: 1.5714285714rem;
+  font-weight: 600;
+  color: #453b4b;
+}
+.modal .service-slider {
+  display: inline-block;
+  padding: 1.5em 0em;
+}
+.modal .service-slider .swipeIcon {
+  margin: 0 auto;
+}
+
 .container {
   margin: 0 auto;
   width: 80%;
@@ -374,6 +447,49 @@ html {
 
 .swipeIcon {
   display: block;
+}
+
+.btnsBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1em 0;
+}
+.btnsBlock button {
+  width: 141px;
+  height: 37px;
+  border-radius: 40px;
+  font-size: 14px;
+  border: none;
+}
+.btnsBlock .dark {
+  position: relative;
+  box-shadow: 0px 2px 0px 0px #8569af;
+  background: linear-gradient(180deg, #c5a5e4 0%, #8569af 100%);
+}
+.btnsBlock .dark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(230.73deg, rgba(255, 255, 255, 0.2) 31.01%, rgba(255, 255, 255, 0.4) 53.05%, rgba(255, 255, 255, 0.2) 72.49%);
+}
+.btnsBlock .light {
+  position: relative;
+  box-shadow: 0px 2px 0px 0px rgba(133, 105, 175, 0.5019607843);
+  background: linear-gradient(180deg, rgba(197, 165, 228, 0.5) 0%, rgba(133, 105, 175, 0.5) 100%);
+}
+.btnsBlock .light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(230.73deg, rgba(255, 255, 255, 0.2) 31.01%, rgba(255, 255, 255, 0.4) 53.05%, rgba(255, 255, 255, 0.2) 72.49%);
 }
 
 .contact-badge {
@@ -434,7 +550,7 @@ html {
   position: absolute;
   right: 12vw;
   top: 15px;
-  z-index: 3;
+  z-index: 1;
   overflow: hidden;
   cursor: pointer;
 }
@@ -650,7 +766,7 @@ html {
 }
 
 .services {
-  padding: 2.5em 0;
+  padding: 2em 0;
 }
 .services .container {
   width: unset;
@@ -664,16 +780,12 @@ html {
   text-align: center;
   padding-bottom: 20px;
 }
-.services .swiper-slide {
-  align-self: center;
-}
 .services .services__face {
   position: relative;
   width: -moz-max-content;
   width: max-content;
   display: block;
   margin: 0 auto;
-  border: 2px solid blue;
 }
 .services .services__face-picture {
   display: inline-block;
@@ -685,8 +797,9 @@ html {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  vertical-align: middle;
 }
-.services .services__face-sign button {
+.services .services__face-btns button {
   width: 23px;
   height: 23px;
   border-radius: 50%;
@@ -696,7 +809,7 @@ html {
   top: 0;
   left: 0;
 }
-.services .services__face-sign button::before {
+.services .services__face-btns button::before {
   content: "";
   display: block;
   width: var(--faceSignWidth);
@@ -706,7 +819,7 @@ html {
   left: 180%;
   top: -10px;
 }
-.services .services__face-sign button::after {
+.services .services__face-btns button::after {
   content: "";
   display: block;
   width: 20px;
@@ -718,32 +831,88 @@ html {
   transform-origin: left;
   transform: rotate(330deg);
 }
-.services .services__face-sign .toForehead {
+.services .services__face-btns .toForehead {
   top: 25%;
   left: 10%;
 }
-.services .services__face-sign .toMesotherapy {
+.services .services__face-btns .toMesotherapy {
   top: 9%;
   left: 77%;
   transform: scale(-1, 1);
 }
-.services .services__face-sign .toEye {
+.services .services__face-btns .toEye {
   top: 46%;
   left: 6%;
 }
-.services .services__face-sign .toLeftCheek {
+.services .services__face-btns .toLeftCheek {
   top: 45%;
   left: 87%;
   transform: scale(-1, 1);
 }
-.services .services__face-sign .toNose {
+.services .services__face-btns .toNose {
   top: 54%;
   left: 78%;
   transform: scale(-1, 1);
 }
-.services .services__face-sign .toLips {
+.services .services__face-btns .toLips {
   top: 61%;
   left: 13%;
+}
+.services__guide {
+  border: 1px solid #a79a9a;
+  border-radius: 10px;
+  background-color: #f6f0ff;
+  padding: 1em 0.5em;
+}
+.services__guide .h3 {
+  font-size: 1.1428571429rem;
+  line-height: 1.5714285714rem;
+  text-align: center;
+  font-weight: 600;
+}
+.services__consultation {
+  margin: 0 auto;
+  width: 80%;
+  padding: 1em 0em;
+}
+.services__consultation .dark {
+  margin: 0 auto;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #29073e;
+  text-decoration: none;
+  border-radius: 40px;
+  border: none;
+}
+.services__consultation ul {
+  padding-top: 1em;
+}
+.services__consultation ul li {
+  list-style-type: none;
+}
+.services__consultation ul li:first-child {
+  font-size: 1.1428571429rem;
+  line-height: 1.5714285714rem;
+  font-weight: 600;
+  text-align: left;
+  padding-bottom: 0.5em;
+}
+.services__consultation ul li:not(:first-child) {
+  padding-left: 0.5em;
+  position: relative;
+}
+.services__consultation ul li:not(:first-child)::before {
+  content: "•";
+  position: absolute;
+  top: 0;
+  left: -6px;
 }
 
 @media (min-width: 767px) {
@@ -935,4 +1104,38 @@ html {
 .footer .contact-badge {
   padding-top: 1em;
   height: 235px;
+}
+
+.modalHand__img {
+  display: inline-block;
+  position: relative;
+}
+.modalHand__img button {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #8569af;
+  border: none;
+  position: absolute;
+  top: 35%;
+  left: 65%;
+}
+.modalHand img {
+  display: block;
+  float: right;
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.modalHand2 .h2 {
+  padding: 1em 0em;
+}
+.modalHand2 .service-slider__img {
+  display: block;
+  float: right;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 1em 0em;
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,15 @@
+.modalHand2 {
+  .h2 {
+    padding: 1em 0em;
+  }
+
+  .service-slider {
+    &__img {
+      display: block;
+      float: right;
+      width: 100%;
+      object-fit: contain;
+      padding: 1em 0em;
+    }
+  }
+}

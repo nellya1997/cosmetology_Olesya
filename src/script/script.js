@@ -160,3 +160,62 @@ document.addEventListener('DOMContentLoaded', function () {
     showMoreButton.style.display = 'none';
   }
 });
+
+/*                          MODAL                              */
+
+const modal = document.querySelector('.modal');
+
+const renderHandMain = () => {
+  return (modal.innerHTML = `
+  <div class="modalHand">
+    <div class="modal__close">
+      <span></span>
+      <span></span>
+    </div>
+    <h2 class="h2">Услуги</h2>
+    <div class="btnsBlock">
+      <button class="dark">Лицо</button>
+      <button class="light">Руки</button>
+    </div>
+    <div class="modalHand__img">
+      <button class="modalHand__btn"></button>
+      <img src="./src/img/services/hand.png" alt="мезотерапия" />
+    </div>
+  </div>
+  `);
+};
+
+//renderHandMain();
+
+const renderHandMain2 = () => {
+  return (modal.innerHTML = `
+    <div class="modalHand2">
+      <div class="container">
+        <div class="modal__close">
+          <span></span>
+          <span></span>
+        </div>
+        <h2 class="h2">Услуги</h2>
+        <div class="service-block">
+          <div class="service-block__left">
+            <h3 class="service-block__h3">Мезотерапия кисти</h3>
+            <span class="service-block__text"
+              >(коктейли из витаминов, минералов, аминокислот)</span
+            >
+          </div>
+          <span class="service-block__price">от 1500₽</span>
+        </div>
+        <div class="service-slider">
+          <img
+            class="service-slider__img"
+            src="./src/img/services/hand-1.jpg"
+            alt=""
+          />
+          <img class="swipeIcon" src="./src/img/swipe.svg" alt="слайдер" />
+        </div>
+      </div>
+    </div>
+    `);
+};
+
+//renderHandMain2();
