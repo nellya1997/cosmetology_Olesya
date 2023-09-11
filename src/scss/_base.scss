@@ -27,7 +27,6 @@ html {
   font-size: 14px;
   font-weight: 400;
   color: $mainTextColor;
-
   //хуета:
   scrollbar-gutter: stable;
 }
@@ -37,10 +36,152 @@ html {
   overflow: hidden;
 }
 
+.modal {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: white;
+  padding: 1.5em 0em;
+
+  border: 2px solid red;
+
+  &__close {
+    width: 19px;
+    height: 19px;
+    position: relative;
+    float: right;
+    padding: 1em 4em 0em 0em;
+
+    span {
+      width: 19px;
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #8569af;
+
+      &:first-child {
+        top: 50%;
+        transform: translate(-50%, 0%) rotate(45deg);
+        transition: transform 0.2s;
+      }
+
+      &:nth-of-type(2) {
+        top: 50%;
+        transform: translate(-50%, 0%) rotate(-45deg);
+        transition: transform 0.2s;
+      }
+    }
+  }
+
+  .h2 {
+    padding-top: 2em;
+  }
+
+  .service-block {
+    @include flexy(row, space-between);
+
+    &__left {
+      width: 65%;
+    }
+
+    &__h3 {
+      font-size: rem(18px);
+      line-height: rem(22px);
+      font-weight: 600;
+      color: $fontTitleColor;
+    }
+
+    &__text {
+      font-size: rem(14px);
+      line-height: rem(19px);
+      font-weight: 400;
+      color: $fontAccentColor;
+    }
+
+    &__price {
+      font-size: rem(16px);
+      line-height: rem(22px);
+      font-weight: 600;
+      color: $mainTextColor;
+    }
+  }
+
+  .service-slider {
+    display: inline-block;
+    padding: 1.5em 0em;
+
+    .swipeIcon {
+      margin: 0 auto;
+    }
+  }
+}
+
 .container {
   @include centry(80%);
 }
 
 .swipeIcon {
   display: block;
+}
+
+.btnsBlock {
+  @include flexy(row, space-evenly);
+  padding: 1em 0;
+
+  button {
+    width: 141px;
+    height: 37px;
+    border-radius: 40px;
+    font-size: 14px;
+    border: none;
+  }
+
+  .dark {
+    position: relative;
+    box-shadow: 0px 2px 0px 0px #8569af;
+    background: linear-gradient(180deg, #c5a5e4 0%, #8569af 100%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        230.73deg,
+        rgba(255, 255, 255, 0.2) 31.01%,
+        rgba(255, 255, 255, 0.4) 53.05%,
+        rgba(255, 255, 255, 0.2) 72.49%
+      );
+    }
+  }
+
+  .light {
+    position: relative;
+    box-shadow: 0px 2px 0px 0px #8569af80;
+    background: linear-gradient(
+      180deg,
+      rgba(197, 165, 228, 0.5) 0%,
+      rgba(133, 105, 175, 0.5) 100%
+    );
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(
+        230.73deg,
+        rgba(255, 255, 255, 0.2) 31.01%,
+        rgba(255, 255, 255, 0.4) 53.05%,
+        rgba(255, 255, 255, 0.2) 72.49%
+      );
+    }
+  }
 }

@@ -1,12 +1,10 @@
-//$faceSignWidth: 60px;
-
 //Here I create simple CSS variable (Sass variable) by purpose because I need to access to ::before of services__face-sign button
 :root {
   --faceSignWidth: 60px;
 }
 
 .services {
-  padding: 2.5em 0;
+  padding: 2em 0;
 
   .container {
     width: unset;
@@ -23,18 +21,11 @@
     padding-bottom: 20px;
   }
 
-  .swiper-slide {
-    align-self: center;
-  }
-
   .services__face {
     position: relative;
-
     width: max-content;
     display: block;
     margin: 0 auto;
-
-    border: 2px solid blue;
 
     &-picture {
       display: inline-block;
@@ -45,10 +36,11 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+        vertical-align: middle;
       }
     }
 
-    &-sign {
+    &-btns {
       button {
         width: 23px;
         height: 23px;
@@ -124,6 +116,66 @@
       .toLips {
         top: 61%;
         left: 13%;
+      }
+    }
+  }
+
+  &__guide {
+    border: 1px solid #a79a9a;
+    border-radius: 10px;
+    background-color: #f6f0ff;
+    padding: 1em 0.5em;
+
+    .h3 {
+      font-size: rem(16px);
+      line-height: rem(22px);
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  &__consultation {
+    @include centry(80%);
+    padding: 1em 0em;
+
+    .dark {
+      @include centry(300px);
+      @include flexy();
+      height: 63px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $fontPurpleDark;
+      text-decoration: none;
+      border-radius: 40px;
+      border: none;
+    }
+
+    ul {
+      padding-top: 1em;
+
+      li {
+        list-style-type: none;
+
+        &:first-child {
+          font-size: rem(16px);
+          line-height: rem(22px);
+          font-weight: 600;
+          text-align: left;
+          padding-bottom: 0.5em;
+        }
+
+        &:not(:first-child) {
+          padding-left: 0.5em;
+          position: relative;
+
+          &::before {
+            content: '\2022';
+            position: absolute;
+            top: 0;
+            left: -6px;
+          }
+        }
       }
     }
   }
