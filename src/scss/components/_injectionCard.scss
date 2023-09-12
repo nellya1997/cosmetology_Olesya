@@ -1,0 +1,45 @@
+.injections-card {
+  padding: 1.5em 0em;
+  &__up {
+    @include flexy(row, space-between);
+  }
+
+  &__img {
+    display: block;
+    float: right;
+    width: 33%;
+    object-fit: contain;
+  }
+
+  &__title {
+    width: 60%;
+    @include flexy(column, normal, normal);
+  }
+
+  &__h3 {
+    font-size: rem(18px);
+    line-height: rem(24px);
+    font-weight: 600;
+    color: $fontTitleColor;
+  }
+
+  &__text {
+    font-size: rem(14px);
+    line-height: rem(19px);
+    font-weight: 400;
+    color: $fontAccentColor;
+  }
+
+  &__price {
+    font-size: rem(16px);
+    line-height: rem(22px);
+    font-weight: 600;
+    color: $mainTextColor;
+  }
+
+  &__down {
+    .services-list {
+      padding-top: 1em;
+    }
+  }
+}

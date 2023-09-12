@@ -1,0 +1,25 @@
+.services-list {
+  li {
+    list-style-type: none;
+  }
+
+  &__title {
+    font-size: rem(16px);
+    line-height: rem(22px);
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 0.5em;
+  }
+
+  &__item {
+    padding-left: 0.5em;
+    position: relative;
+
+    &::before {
+      content: '\2022';
+      position: absolute;
+      top: 0;
+      left: -6px;
+    }
+  }
+}

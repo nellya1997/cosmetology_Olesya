@@ -374,7 +374,7 @@ html {
   z-index: 2;
   background-color: white;
   padding: 1.5em 0em;
-  border: 2px solid red;
+  border: 1px solid blue;
 }
 .modal__close {
   width: 19px;
@@ -542,6 +542,72 @@ html {
   font-weight: 600;
   text-align: center;
   color: #8569af;
+}
+
+.services-list li {
+  list-style-type: none;
+}
+.services-list__title {
+  font-size: 1.1428571429rem;
+  line-height: 1.5714285714rem;
+  font-weight: 600;
+  text-align: left;
+  padding-bottom: 0.5em;
+}
+.services-list__item {
+  padding-left: 0.5em;
+  position: relative;
+}
+.services-list__item::before {
+  content: "•";
+  position: absolute;
+  top: 0;
+  left: -6px;
+}
+
+.injections-card {
+  padding: 1.5em 0em;
+}
+.injections-card__up {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.injections-card__img {
+  display: block;
+  float: right;
+  width: 33%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.injections-card__title {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: normal;
+}
+.injections-card__h3 {
+  font-size: 1.2857142857rem;
+  line-height: 1.7142857143rem;
+  font-weight: 600;
+  color: #8569af;
+}
+.injections-card__text {
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  font-weight: 400;
+  color: #8f8d90;
+}
+.injections-card__price {
+  font-size: 1.1428571429rem;
+  line-height: 1.5714285714rem;
+  font-weight: 600;
+  color: #453b4b;
+}
+.injections-card__down .services-list {
+  padding-top: 1em;
 }
 
 .burger {
@@ -891,28 +957,8 @@ html {
   border-radius: 40px;
   border: none;
 }
-.services__consultation ul {
+.services__consultation .services-list {
   padding-top: 1em;
-}
-.services__consultation ul li {
-  list-style-type: none;
-}
-.services__consultation ul li:first-child {
-  font-size: 1.1428571429rem;
-  line-height: 1.5714285714rem;
-  font-weight: 600;
-  text-align: left;
-  padding-bottom: 0.5em;
-}
-.services__consultation ul li:not(:first-child) {
-  padding-left: 0.5em;
-  position: relative;
-}
-.services__consultation ul li:not(:first-child)::before {
-  content: "•";
-  position: absolute;
-  top: 0;
-  left: -6px;
 }
 
 @media (min-width: 767px) {
@@ -1138,4 +1184,8 @@ html {
   -o-object-fit: contain;
      object-fit: contain;
   padding: 1em 0em;
+}
+
+.modalInjections .btnsBlock {
+  gap: 1em;
 }/*# sourceMappingURL=main.css.map */

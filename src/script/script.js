@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const modal = document.querySelector('.modal');
 
 const renderHandMain = () => {
-  return (modal.innerHTML = `
+  modal.innerHTML = `
   <div class="modalHand">
     <div class="modal__close">
       <span></span>
@@ -182,13 +182,13 @@ const renderHandMain = () => {
       <img src="./src/img/services/hand.png" alt="мезотерапия" />
     </div>
   </div>
-  `);
+  `;
 };
 
 //renderHandMain();
 
 const renderHandMain2 = () => {
-  return (modal.innerHTML = `
+  modal.innerHTML = `
     <div class="modalHand2">
       <div class="container">
         <div class="modal__close">
@@ -215,7 +215,7 @@ const renderHandMain2 = () => {
         </div>
       </div>
     </div>
-    `);
+    `;
 };
 
 //renderHandMain2();
