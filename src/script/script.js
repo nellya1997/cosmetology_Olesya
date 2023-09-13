@@ -176,6 +176,61 @@ const makeElement = function (tagName, className, elemText) {
   return element;
 };
 
+/*                       auxiliary                                */
+const renderSlider = (sliderClass, swiperClass) => {
+  const slider = makeElement('div', sliderClass);
+  const swiper = makeElement('div', 'swiper');
+  swiper.classList.add(swiperClass);
+  const swiperWrapper = makeElement('div', 'swiper-wrapper');
+  slider.appendChild(swiper);
+  swiper.appendChild(swiperWrapper);
+  return slider;
+};
+
+const renderSlide = (pictureItem) => {
+  const slide = makeElement('div', 'swiper-slide');
+  const picture = makeElement('picture');
+  //source1 is for modern browser due to low maintanance of webp format
+  const source1 = makeElement('source');
+  if (pictureItem.srcsetWebp) {
+    source1.setAttribute('srcset', pictureItem.srcsetWebp);
+    source1.setAttribute('alt', pictureItem.alt);
+    source1.setAttribute('type', 'image/webp');
+  }
+  //source2 is for old browser
+  const source2 = makeElement('source');
+  source1.setAttribute('srcset', pictureItem.srcset);
+  source2.setAttribute('alt', pictureItem.alt);
+  source2.setAttribute('type', 'image/jpg');
+
+  const image = makeElement('img');
+  image.src = pictureItem.srcset;
+  image.alt = pictureItem.alt;
+
+  slide.appendChild(picture);
+
+  picture.appendChild(source1);
+  picture.appendChild(source2);
+  picture.appendChild(image);
+
+  return slide;
+};
+
+const renderSlides = (array) => {
+  const swiper = modal.querySelector('.swiper-wrapper');
+  for (let i = 0; i < array.length; i++) {
+    const slide = renderSlide(array[i]);
+    swiper.appendChild(slide);
+  }
+};
+
+const renderIcon = () => {
+  const icon = makeElement('img', 'swipeIcon');
+  icon.src = './src/img/swipe.svg';
+  return icon;
+};
+
+/*                           modals                                     */
 const renderHandMain = () => {
   modal.innerHTML = `
   <div class="modalHand">
@@ -200,33 +255,68 @@ const renderHandMain = () => {
 
 const renderHandMain2 = () => {
   modal.innerHTML = `
-    <div class="modalHand2">
-      <div class="container">
-        <div class="modal__close">
-          <span></span>
-          <span></span>
-        </div>
-        <h2 class="h2">Услуги</h2>
-        <div class="service-block">
-          <div class="service-block__left">
-            <h3 class="service-block__h3">Мезотерапия кисти</h3>
-            <span class="service-block__text"
-              >(коктейли из витаминов, минералов, аминокислот)</span
-            >
+      <div class="modalHand2">
+        <div class="container">
+          <div class="modal__close">
+            <span></span>
+            <span></span>
           </div>
-          <span class="service-block__price">от 1500₽</span>
-        </div>
-        <div class="service-slider">
-          <img
-            class="service-slider__img"
-            src="./src/img/services/hand-1.jpg"
-            alt=""
-          />
-          <img class="swipeIcon" src="./src/img/swipe.svg" alt="слайдер" />
+          <h2 class="h2">Услуги</h2>
+          <div class="service-block">
+            <div class="service-block__left">
+              <h3 class="service-block__h3">Мезотерапия кисти</h3>
+              <span class="service-block__text"
+                >(коктейли из витаминов, минералов, аминокислот)</span
+              >
+            </div>
+            <span class="service-block__price">от 1500₽</span>
+          </div>
         </div>
       </div>
-    </div>
     `;
+
+  const container = modal.querySelector('.modalHand2 .container');
+  const picturesArray = [
+    {
+      id: 1,
+      srcsetWebp: './src/img/services/hand1.webp',
+      srcset: './src/img/services/hand1.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 2,
+      srcsetWebp: './src/img/services/hand1.webp',
+      srcset: './src/img/services/hand1.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 3,
+      srcsetWebp: './src/img/services/hand1.webp',
+      srcset: './src/img/services/hand1.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+  ];
+  const slider = renderSlider('modalHand2__slider', 'modalHand2__swiper');
+  container.appendChild(slider);
+  renderSlides(picturesArray);
+
+  const modalLipstherapySlider = new Swiper('.modalHand2__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    allowSlideNext: true,
+    allowSlidePrev: true,
+    allowTouchMove: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    speed: 1000,
+    autoplay: {
+      delay: 4000,
+    },
+  });
+
+  const icon = renderIcon();
+
+  container.appendChild(icon);
 };
 
 //renderHandMain2();
@@ -338,6 +428,27 @@ const renderMasks = () => {
     },
   ];
 
+  const picturesArray = [
+    {
+      id: 1,
+      srcsetWebp: './src/img/services/mask1.webp',
+      srcset: './src/img/services/mask1.jpg',
+      alt: 'маски для лица',
+    },
+    {
+      id: 2,
+      srcsetWebp: './src/img/services/mask1.webp',
+      srcset: './src/img/services/mask1.jpg',
+      alt: 'маски для лица',
+    },
+    {
+      id: 3,
+      srcsetWebp: './src/img/services/mask1.webp',
+      srcset: './src/img/services/mask1.jpg',
+      alt: 'маски для лица',
+    },
+  ];
+
   const renderBlock = (service) => {
     const block = makeElement('div', 'service-block');
     const leftSide = makeElement('div', 'service-block__left');
@@ -363,80 +474,11 @@ const renderMasks = () => {
 
   renderBlocks(data);
 
-  const picturesArray = [
-    {
-      id: 1,
-      srcsetWebp: './src/img/services/mask1.webp',
-      srcset: './src/img/services/mask1.jpg',
-      alt: 'маски для лица',
-    },
-    {
-      id: 2,
-      srcsetWebp: './src/img/services/mask2.webp',
-      srcset: './src/img/services/mask2.jpg',
-      alt: 'маски для лица',
-    },
-    {
-      id: 3,
-      srcsetWebp: './src/img/services/mask2.webp',
-      srcset: './src/img/services/mask3.jpg',
-      alt: 'маски для лица',
-    },
-  ];
-
-  function renderSlider() {
-    const slider = makeElement('div', 'modalMasks__slider');
-    const swiper = makeElement('div', 'swiper');
-    swiper.classList.add('modalMasks__swiper');
-    const swiperWrapper = makeElement('div', 'swiper-wrapper');
-    slider.appendChild(swiper);
-    swiper.appendChild(swiperWrapper);
-    container.appendChild(slider);
-  }
-
-  renderSlider();
-
-  const renderSlide = (pictureItem) => {
-    const slide = makeElement('div', 'swiper-slide');
-    const picture = makeElement('picture');
-    //source1 is for modern browser due to low maintanance of webp format
-    const source1 = makeElement('source');
-    if (pictureItem.srcsetWebp) {
-      source1.setAttribute('srcset', pictureItem.srcsetWebp);
-      source1.setAttribute('alt', pictureItem.alt);
-      source1.setAttribute('type', 'image/webp');
-    }
-    //source2 is for old browser
-    const source2 = makeElement('source');
-    source1.setAttribute('srcset', pictureItem.srcset);
-    source2.setAttribute('alt', pictureItem.alt);
-    source2.setAttribute('type', 'image/jpg');
-
-    const image = makeElement('img');
-    image.src = pictureItem.srcset;
-    image.alt = pictureItem.alt;
-
-    slide.appendChild(picture);
-
-    picture.appendChild(source1);
-    picture.appendChild(source2);
-    picture.appendChild(image);
-
-    return slide;
-  };
-
-  const renderSlides = () => {
-    const swiper = modal.querySelector('.swiper-wrapper');
-    for (let i = 0; i < picturesArray.length; i++) {
-      const slide = renderSlide(picturesArray[i]);
-      swiper.appendChild(slide);
-    }
-  };
-
+  const slider = renderSlider('modalMasks__slider', 'modalMasks__swiper');
+  container.appendChild(slider);
   renderSlides(picturesArray);
 
   const modalMasksSlider = new Swiper('.modalMasks__swiper', {
-    //direction: 'horizontal',
     loop: true,
     slidesPerView: 1,
     allowSlideNext: true,
@@ -450,13 +492,238 @@ const renderMasks = () => {
     },
   });
 
-  const renderIcon = () => {
-    const icon = makeElement('img', 'swipeIcon');
-    icon.src = './src/img/swipe.svg';
-    container.appendChild(icon);
-  };
-
-  renderIcon();
+  const icon = renderIcon();
+  container.appendChild(icon);
 };
 
 //renderMasks();
+
+const renderMesotherapy = () => {
+  modal.innerHTML = `
+  <div class="modalMesotherapy">
+    <div class="container">
+      <div class="modal__close">
+        <span></span>
+        <span></span>
+      </div>
+    <h2 class="h2">Услуги</h2>
+    <div class="service-block">
+      <div class="service-block__left">
+        <h3 class="service-block__h3">Мезотерапия волосистой части головы</h3>
+        <span class="service-block__text"
+          >(коктейли из витаминов, минералов, аминокислот)</span
+        >
+      </div>
+      <span class="service-block__price">от 1500₽</span>
+    </div>
+    </div>
+  </div>
+  `;
+
+  const container = modal.querySelector('.modalMesotherapy .container');
+
+  const picturesArray = [
+    {
+      id: 1,
+      srcsetWebp: './src/img/services/hairs.webp',
+      srcset: './src/img/services/hairs.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 2,
+      srcsetWebp: './src/img/services/hairs.webp',
+      srcset: './src/img/services/hairs.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 3,
+      srcsetWebp: './src/img/services/hairs.webp',
+      srcset: './src/img/services/hairs.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+  ];
+
+  const slider = renderSlider(
+    'modalMesotherapy__slider',
+    'modalMesotherapy__swiper',
+  );
+  container.appendChild(slider);
+  renderSlides(picturesArray);
+
+  const modalMasksSlider = new Swiper('.modalMesotherapy__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    allowSlideNext: true,
+    allowSlidePrev: true,
+    allowTouchMove: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    speed: 1000,
+    autoplay: {
+      delay: 4000,
+    },
+  });
+
+  const icon = renderIcon();
+
+  container.appendChild(icon);
+};
+
+//renderMesotherapy();
+
+const renderNosetherapy = () => {
+  modal.innerHTML = `
+  <div class="modalNosetherapy">
+  <div class="container">
+    <div class="modal__close">
+      <span></span>
+      <span></span>
+    </div>
+    <h2 class="h2">Услуги</h2>
+    <div class="service-block">
+      <div class="service-block__left">
+        <h3 class="service-block__h3">Заполнение носогубных складок</h3>
+        <span class="service-block__text"
+          >(гиалуроновая кислота, которая заполняет морщины и делает кожу
+          более упругой)</span
+        >
+      </div>
+      <span class="service-block__price">от 3500₽</span>
+    </div>
+    <div class="service-block">
+      <div class="service-block__left">
+        <h3 class="service-block__h3">Коррекция носогубных складок</h3>
+        <span class="service-block__text"
+          >(филлер, который заполняет морщины и делает кожу более
+          упругой)</span
+        >
+      </div>
+      <span class="service-block__price">от 5000₽</span>
+    </div>
+  </div>
+</div>
+  `;
+
+  const container = modal.querySelector('.modalNosetherapy .container');
+
+  const picturesArray = [
+    {
+      id: 1,
+      srcsetWebp: './src/img/services/lips.webp',
+      srcset: './src/img/services/lips.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 2,
+      srcsetWebp: './src/img/services/lips.webp',
+      srcset: './src/img/services/lips.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 3,
+      srcsetWebp: './src/img/services/lips.webp',
+      srcset: './src/img/services/lips.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+  ];
+
+  const slider = renderSlider(
+    'modalNosetherapy__slider',
+    'modalNosetherapy__swiper',
+  );
+  container.appendChild(slider);
+
+  renderSlides(picturesArray);
+
+  const modalNosetherapySlider = new Swiper('.modalNosetherapy__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    allowSlideNext: true,
+    allowSlidePrev: true,
+    allowTouchMove: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    speed: 1000,
+    autoplay: {
+      delay: 4000,
+    },
+  });
+
+  const icon = renderIcon();
+
+  container.appendChild(icon);
+};
+
+//renderNosetherapy();
+
+const renderLipstherapy = () => {
+  modal.innerHTML = `
+  <div class="modalLipstherapy">
+    <div class="container">
+      <div class="modal__close">
+        <span></span>
+        <span></span>
+      </div>
+      <h2 class="h2">Услуги</h2>
+      <div class="service-block">
+        <div class="service-block__left">
+          <h3 class="service-block__h3">Контурная пластика губ</h3>
+          <span class="service-block__text"
+            >(позволяет увеличить объем губ, убрать ассиметрию, сделать их более формованными и привлекательными)</span
+          >
+        </div>
+        <span class="service-block__price">от 3500₽</span>
+      </div>
+    </div>
+  </div>
+  `;
+  const container = modal.querySelector('.modalLipstherapy .container');
+
+  const picturesArray = [
+    {
+      id: 1,
+      srcsetWebp: './src/img/services/chin.webp',
+      srcset: './src/img/services/chin.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 2,
+      srcsetWebp: './src/img/services/chin.webp',
+      srcset: './src/img/services/chin.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+    {
+      id: 3,
+      srcsetWebp: './src/img/services/chin.webp',
+      srcset: './src/img/services/chin.jpg',
+      alt: 'мезотерапия волосистой части головы',
+    },
+  ];
+
+  const slider = renderSlider(
+    'modalLipstherapy__slider',
+    'modalLipstherapy__swiper',
+  );
+  container.appendChild(slider);
+  renderSlides(picturesArray);
+
+  const modalLipstherapySlider = new Swiper('.modalLipstherapy__swiper', {
+    loop: true,
+    slidesPerView: 1,
+    allowSlideNext: true,
+    allowSlidePrev: true,
+    allowTouchMove: true,
+    grabCursor: true,
+    spaceBetween: 20,
+    speed: 1000,
+    autoplay: {
+      delay: 4000,
+    },
+  });
+
+  const icon = renderIcon();
+
+  container.appendChild(icon);
+};
+
+//renderLipstherapy();

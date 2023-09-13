@@ -617,7 +617,7 @@ html {
   position: absolute;
   right: 12vw;
   top: 15px;
-  z-index: 1;
+  z-index: 3;
   overflow: hidden;
   cursor: pointer;
 }
@@ -1175,16 +1175,17 @@ html {
      object-fit: contain;
 }
 
-.modalHand2 .h2 {
+.modalHand2 .service-block {
   padding: 1em 0em;
 }
-.modalHand2 .service-slider__img {
-  display: block;
-  float: right;
+.modalHand2__slider img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.modalHand2 .swipeIcon {
   padding: 1em 0em;
+  margin: 0 auto;
 }
 
 .modalInjections {
@@ -1214,5 +1215,51 @@ html {
 }
 .modalMasks .swipeIcon {
   padding-bottom: 2em;
+  margin: 0 auto;
+}
+
+.modalMesotherapy .service-block {
+  padding: 1em 0em;
+}
+.modalMesotherapy__slider img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modalMesotherapy .swipeIcon {
+  padding: 1em 0em;
+  margin: 0 auto;
+}
+
+.modalNosetherapy {
+  height: 100vh;
+  overflow-y: scroll;
+}
+.modalNosetherapy .container {
+  padding-bottom: 3em;
+}
+.modalNosetherapy .service-block {
+  padding: 1em 0em;
+}
+.modalNosetherapy__slider img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modalNosetherapy .swipeIcon {
+  padding: 1em 0em;
+  margin: 0 auto;
+}
+
+.modalLipstherapy .service-block {
+  padding: 1em 0em;
+}
+.modalLipstherapy__slider img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modalLipstherapy .swipeIcon {
+  padding: 1em 0em;
   margin: 0 auto;
 }/*# sourceMappingURL=main.css.map */
