@@ -29,15 +29,6 @@ main {
   display: block;
 }
 
-/**
-   * Correct the font size and margin on `h1` elements within `section` and
-   * `article` contexts in Chrome, Firefox, and Safari.
-   */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
 /* Grouping content
      ========================================================================== */
 /**
@@ -363,6 +354,10 @@ html {
   scrollbar-gutter: stable;
 }
 
+body {
+  position: relative;
+}
+
 /*            COMMON CLASSES              */
 .stop-scroll {
   overflow: hidden;
@@ -372,9 +367,7 @@ html {
   position: fixed;
   width: 100%;
   z-index: 2;
-  background-color: white;
   padding: 1.5em 0em;
-  border: 1px solid yellow;
   overflow-y: auto;
 }
 .modal__close {
@@ -617,7 +610,7 @@ html {
   position: absolute;
   right: 12vw;
   top: 15px;
-  z-index: 1;
+  z-index: 3;
   overflow: hidden;
   cursor: pointer;
 }
@@ -657,6 +650,9 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .header li {
   list-style-type: none;
@@ -721,8 +717,120 @@ html {
   }
 }
 .first {
-  height: 600px;
-  border: 2px solid red;
+  border: 1px solid white;
+  margin-bottom: 7em;
+  position: relative;
+  background: url("../img/first/background.jpg") center/cover no-repeat;
+}
+.first::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 1;
+  width: 180px;
+  height: 130px;
+  background: url("../img/first/light.png") center/cover no-repeat;
+}
+.first::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/first/shine.png") center/cover no-repeat;
+}
+.first__title {
+  margin: 0 auto;
+  width: 69%;
+  text-align: center;
+  margin-top: 95px;
+}
+.first__title .h1 {
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  color: #29073e;
+}
+.first__title .h1 span {
+  font-family: "berold";
+  font-size: 2.1428571429rem;
+  font-weight: 400;
+  line-height: 3.2142857143rem;
+  text-transform: uppercase;
+  color: #8569af;
+}
+.first__title-text {
+  font-size: 1rem;
+  line-height: 1.3571428571rem;
+  color: #8f8d90;
+}
+.first__badge {
+  width: 42%;
+  position: absolute;
+  top: 38%;
+  left: 11%;
+}
+.first__badge span:first-child {
+  font-size: 1.1428571429rem;
+  line-height: 1.5714285714rem;
+  font-weight: 600;
+  text-align: center;
+  color: #29073e;
+}
+.first__badge span:nth-child(2) {
+  font-size: 1rem;
+  line-height: 1.1428571429rem;
+  font-weight: 400;
+}
+.first__deco {
+  width: 115px;
+  height: 285px;
+  background: url("../img/first/table.png") center/cover no-repeat;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.first__girl picture {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: normal;
+}
+.first__girl picture img {
+  width: 60%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.first__footer {
+  position: absolute;
+  bottom: -7em;
+  left: 0;
+  right: 0;
+}
+.first__footer .dark {
+  margin: 0 auto;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #29073e;
+  text-decoration: none;
+  border-radius: 40px;
+  border: none;
+}
+.first__footer-text {
+  margin: 0 auto;
+  width: 83%;
+  font-size: 1rem;
+  line-height: 1.1428571429rem;
+  text-align: center;
+  color: #8f8d90;
 }
 
 .sertificates {
@@ -1175,16 +1283,17 @@ html {
      object-fit: contain;
 }
 
-.modalHand2 .h2 {
+.modalHand2 .service-block {
   padding: 1em 0em;
 }
-.modalHand2 .service-slider__img {
-  display: block;
-  float: right;
+.modalHand2__slider img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.modalHand2 .swipeIcon {
   padding: 1em 0em;
+  margin: 0 auto;
 }
 
 .modalInjections {
@@ -1214,5 +1323,51 @@ html {
 }
 .modalMasks .swipeIcon {
   padding-bottom: 2em;
+  margin: 0 auto;
+}
+
+.modalMesotherapy .service-block {
+  padding: 1em 0em;
+}
+.modalMesotherapy__slider img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modalMesotherapy .swipeIcon {
+  padding: 1em 0em;
+  margin: 0 auto;
+}
+
+.modalNosetherapy {
+  height: 100vh;
+  overflow-y: scroll;
+}
+.modalNosetherapy .container {
+  padding-bottom: 3em;
+}
+.modalNosetherapy .service-block {
+  padding: 1em 0em;
+}
+.modalNosetherapy__slider img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modalNosetherapy .swipeIcon {
+  padding: 1em 0em;
+  margin: 0 auto;
+}
+
+.modalLipstherapy .service-block {
+  padding: 1em 0em;
+}
+.modalLipstherapy__slider img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modalLipstherapy .swipeIcon {
+  padding: 1em 0em;
   margin: 0 auto;
 }/*# sourceMappingURL=main.css.map */
