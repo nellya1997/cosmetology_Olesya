@@ -1,4 +1,132 @@
 .first {
-  height: 600px;
-  border: 2px solid red;
+  //забыл как бороться со схлопыванием поэтому этот чудесный костыль:
+  border: 1px solid white;
+
+  margin-bottom: 7em;
+  position: relative;
+  background: url('../img/first/background.jpg') center/cover no-repeat;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 1;
+    width: 180px;
+    height: 130px;
+    background: url('../img/first/light.png') center/cover no-repeat;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/first/shine.png') center/cover no-repeat;
+  }
+
+  &__title {
+    @include centry(69%);
+    text-align: center;
+    margin-top: 95px;
+
+    .h1 {
+      font-size: rem(14px);
+      line-height: rem(19px);
+      color: $fontPurpleDark;
+
+      span {
+        font-family: 'berold';
+        font-size: rem(30px);
+        font-weight: 400;
+        line-height: rem(45px);
+        text-transform: uppercase;
+        color: $fontTitleColor;
+      }
+    }
+
+    &-text {
+      font-size: rem(14px);
+      line-height: rem(19px);
+      color: $fontAccentColor;
+    }
+  }
+
+  &__badge {
+    width: 42%;
+    position: absolute;
+    top: 38%;
+    left: 11%;
+
+    span {
+      &:first-child {
+        font-size: rem(16px);
+        line-height: rem(22px);
+        font-weight: 600;
+        text-align: center;
+        color: $fontPurpleDark;
+      }
+
+      &:nth-child(2) {
+        font-size: rem(14px);
+        line-height: rem(16px);
+        font-weight: 400;
+      }
+    }
+  }
+
+  &__deco {
+    width: 115px;
+    height: 285px;
+    background: url('../img/first/table.png') center/cover no-repeat;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__girl {
+    picture {
+      @include flexy(row, flex-end, normal);
+      img {
+        width: 60%;
+        //height: 60vh;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: -7em;
+    left: 0;
+    right: 0;
+
+    .dark {
+      margin: 0 auto;
+      width: 300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 63px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #29073e;
+      text-decoration: none;
+      border-radius: 40px;
+      border: none;
+    }
+
+    &-text {
+      @include centry(83%);
+      font-size: rem(14px);
+      line-height: rem(16px);
+      text-align: center;
+      color: $fontAccentColor;
+    }
+  }
 }
