@@ -46,10 +46,8 @@ const firstSection = () => {
 
   function checkScreenWidth(e) {
     if (e.matches) {
-      console.log('matches');
       girlBlock.appendChild(footer);
     } else {
-      console.log('less than 767');
       first.appendChild(footer);
     }
   }
@@ -183,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*                          MODAL                              */
 
+const body = document.querySelector('body');
 const modal = document.getElementById('modal');
 
 /*                       auxiliary                                */
@@ -251,8 +250,25 @@ const renderIcon = () => {
   return icon;
 };
 
+function renderModal() {
+  if (modal.classList.contains('modal_closed')) {
+    modal.classList.remove('modal_closed');
+  }
+
+  if (!body.classList.contains('stop-scroll')) {
+    body.classList.add('stop-scroll');
+  }
+}
+
+function closeModal() {
+  modal.classList.add('modal_closed');
+  body.classList.remove('stop-scroll');
+  //удалить все node узлы
+}
+
 /*                           modals                                     */
 const renderHandMain = () => {
+  renderModal();
   modal.innerHTML = `
   <div class="modalHand">
     <div class="modal__close">
@@ -261,20 +277,25 @@ const renderHandMain = () => {
     </div>
     <h2 class="h2">Услуги</h2>
     <div class="btnsBlock">
-      <button class="dark">Лицо</button>
+      <button class="dark" onclick="renderInjections()">Лицо</button>
       <button class="light">Руки</button>
     </div>
     <div class="modalHand__img">
-      <button class="modalHand__btn"></button>
+      <button class="modalHand__btn" onclick="renderHandMain2()"></button>
       <img src="./src/img/services/hand.png" alt="мезотерапия" />
     </div>
   </div>
   `;
+
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderHandMain();
 
 const renderHandMain2 = () => {
+  renderModal();
+
   modal.innerHTML = `
       <div class="modalHand2">
         <div class="container">
@@ -338,11 +359,16 @@ const renderHandMain2 = () => {
   const icon = renderIcon();
 
   container.appendChild(icon);
+
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderHandMain2();
 
 const renderInjections = () => {
+  renderModal();
+
   modal.innerHTML = `
   <div class="modalInjections">
     <div class="container">
@@ -353,7 +379,7 @@ const renderInjections = () => {
       <h2 class="h2">Услуги</h2>
       <div class="btnsBlock">
         <button class="dark">Уколы</button>
-        <button class="light">Маски</button>
+        <button class="light" onclick="renderMasks()">Маски</button>
       </div>
       
       </div>
@@ -403,11 +429,17 @@ const renderInjections = () => {
   };
 
   renderCards(dataIncjections);
+
+  //this is unwanted mistake which can not be decided right now:
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderInjections();
 
 const renderMasks = () => {
+  renderModal();
+
   modal.innerHTML = `
   <div class="modalMasks">
     <div class="container">
@@ -417,7 +449,7 @@ const renderMasks = () => {
       </div>
       <h2 class="h2">Услуги</h2>
       <div class="btnsBlock">
-        <button class="dark">Уколы</button>
+        <button class="dark" onclick="renderInjections()">Уколы</button>
         <button class="light">Маски</button>
       </div>
       
@@ -515,11 +547,16 @@ const renderMasks = () => {
 
   const icon = renderIcon();
   container.appendChild(icon);
+
+  //this is unwanted mistake which can not be decided right now:
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderMasks();
 
 const renderMesotherapy = () => {
+  renderModal();
   modal.innerHTML = `
   <div class="modalMesotherapy">
     <div class="container">
@@ -588,11 +625,17 @@ const renderMesotherapy = () => {
   const icon = renderIcon();
 
   container.appendChild(icon);
+
+  //this is unwanted mistake which can not be decided right now:
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderMesotherapy();
 
 const renderNosetherapy = () => {
+  renderModal();
+
   modal.innerHTML = `
   <div class="modalNosetherapy">
   <div class="container">
@@ -673,11 +716,17 @@ const renderNosetherapy = () => {
   const icon = renderIcon();
 
   container.appendChild(icon);
+
+  //this is unwanted mistake which can not be decided right now:
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderNosetherapy();
 
 const renderLipstherapy = () => {
+  renderModal();
+
   modal.innerHTML = `
   <div class="modalLipstherapy">
     <div class="container">
@@ -745,6 +794,32 @@ const renderLipstherapy = () => {
   const icon = renderIcon();
 
   container.appendChild(icon);
+
+  //this is unwanted mistake which can not be decided right now:
+  const closeBtn = modal.querySelector('.modal__close');
+  closeBtn.addEventListener('click', closeModal);
 };
 
 //renderLipstherapy();
+
+/*                           modals's functions                          */
+(function () {
+  const services = document.getElementById('services');
+  //btns:
+  const toFace = document.getElementById('toFace');
+  toFace.addEventListener('click', renderInjections);
+  const toHand = document.getElementById('toHand');
+  toHand.addEventListener('click', renderHandMain);
+  const toMesotherapy = services.querySelector('.toMesotherapy');
+  toMesotherapy.addEventListener('click', renderMesotherapy);
+  const toForehead = services.querySelector('.toForehead');
+  toForehead.addEventListener('click', renderInjections);
+  const toEye = services.querySelector('.toEye');
+  toEye.addEventListener('click', renderInjections);
+  const toLeftCheeck = services.querySelector('.toLeftCheek');
+  toLeftCheeck.addEventListener('click', renderMasks);
+  const toNose = services.querySelector('.toNose');
+  toNose.addEventListener('click', renderNosetherapy);
+  const toLips = services.querySelector('.toLips');
+  toLips.addEventListener('click', renderLipstherapy);
+})();

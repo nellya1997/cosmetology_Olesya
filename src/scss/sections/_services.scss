@@ -47,6 +47,7 @@
         border-radius: 50%;
         background-color: #8569af;
         border: none;
+        cursor: pointer;
 
         position: absolute;
         // I did not forget to delete this - it is necessary to save here:
@@ -81,6 +82,10 @@
           transform-origin: left;
 
           transform: rotate(330deg);
+        }
+
+        &:active {
+          background-color: $fontPurpleDark;
         }
       }
 
