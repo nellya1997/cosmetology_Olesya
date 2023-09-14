@@ -7,13 +7,11 @@
   const body = document.querySelector('body');
   const header = document.querySelector('.header');
 
-  //при нажатии на якорную ссылку или на ссылку адрес/тлф - мобильное меню также должно закрываться
-  //для этого я дал класс js-header-close чтобы получить нужный массив ссылок, при нажатии на которые header будет закрываться
   const links = Array.from(document.querySelectorAll('.js-header-close'));
 
-  //присваиваем все классы одной функцией:
   function closeHeader() {
     burgerBtn.classList.toggle('burger_active');
+
     mobileNav.classList.toggle('nav_active');
     body.classList.toggle('stop-scroll');
     header.classList.toggle('header_active');
@@ -21,7 +19,6 @@
 
   burgerBtn.addEventListener('click', closeHeader);
 
-  //клик по ссылкам в mobile-header должен работать и отключаться в зависимости от разрешения
   function checkCurrentWidth() {
     if (window.screen.width < 768) {
       links.forEach((el) => {
@@ -38,6 +35,29 @@
 
   window.addEventListener('resize', checkCurrentWidth);
 })();
+
+/*                          FIRST                              */
+
+const firstSection = () => {
+  const first = document.getElementById('first');
+  const girlBlock = first.querySelector('.first__girl');
+  const footer = first.querySelector('.first__footer');
+  const width767 = window.matchMedia('(min-width: 767px)');
+
+  function checkScreenWidth(e) {
+    if (e.matches) {
+      console.log('matches');
+      girlBlock.appendChild(footer);
+    } else {
+      console.log('less than 767');
+      first.appendChild(footer);
+    }
+  }
+
+  width767.addEventListener('change', checkScreenWidth);
+};
+
+firstSection();
 
 const swiperSertificates = new Swiper('.sertificates__swiper', {
   //direction: 'horizontal',
@@ -82,7 +102,7 @@ const swiperResults = new Swiper('.results__swiper', {
   },
 });
 
-//services
+/*                          SERVICES                           */
 const servicesWidth = () => {
   function previousWidthCalc() {
     //I will define line under the button in respect of picture's size which is stabled by 43vh
@@ -164,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
 /*                          MODAL                              */
 
 const modal = document.getElementById('modal');
+
+/*                       auxiliary                                */
 const makeElement = function (tagName, className, elemText) {
   const element = document.createElement(tagName);
   if (className) {
@@ -176,7 +198,6 @@ const makeElement = function (tagName, className, elemText) {
   return element;
 };
 
-/*                       auxiliary                                */
 const renderSlider = (sliderClass, swiperClass) => {
   const slider = makeElement('div', sliderClass);
   const swiper = makeElement('div', 'swiper');

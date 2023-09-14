@@ -153,6 +153,7 @@
 
     .services-list {
       padding-top: 1em;
+      @include centry(100%);
     }
   }
 }
@@ -163,6 +164,31 @@
       &-picture {
         height: 50vh;
       }
+    }
+
+    &__guide {
+      @include centry(80%);
+    }
+
+    .services-list {
+      width: 60%;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .services {
+    .btnsBlock {
+      justify-content: center;
+      gap: 5%;
+    }
+
+    &__guide {
+      @include centry(50%);
+    }
+
+    .services-list {
+      width: 38%;
     }
   }
 }

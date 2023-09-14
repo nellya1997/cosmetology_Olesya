@@ -30,7 +30,7 @@
   &__title {
     @include centry(69%);
     text-align: center;
-    margin-top: 95px;
+    padding-top: calc(95px - 60 * ((100vw - 375px) / 1366));
 
     .h1 {
       font-size: rem(14px);
@@ -69,7 +69,7 @@
         color: $fontPurpleDark;
       }
 
-      &:nth-child(2) {
+      &:nth-child(3) {
         font-size: rem(14px);
         line-height: rem(16px);
         font-weight: 400;
@@ -78,8 +78,13 @@
   }
 
   &__deco {
-    width: 115px;
-    height: 285px;
+    //width: 115px;
+    //height: 285px;
+    //width: 30%;
+    //height: 64%;
+
+    width: calc(115px + 115 * ((100vw - 375px) / 393));
+    height: calc(285px + 255 * ((100vw - 375px) / 393));
     background: url('../img/first/table.png') center/cover no-repeat;
 
     position: absolute;
@@ -88,21 +93,31 @@
   }
 
   &__girl {
+    position: relative;
+    z-index: 1;
+    padding-right: 1em;
+
     picture {
       @include flexy(row, flex-end, normal);
-      img {
-        width: 60%;
-        //height: 60vh;
-        object-fit: contain;
-      }
+    }
+    //I add a class for img on purpose due to dense nesting
+    &-img {
+      width: 60%;
+      //height: 60vh;
+      object-fit: contain;
     }
   }
 
   &__footer {
     position: absolute;
-    bottom: -7em;
+    bottom: -6em;
     left: 0;
     right: 0;
+    z-index: 1;
+
+    .btnsBlock {
+      padding: 0.4em 0em;
+    }
 
     .dark {
       margin: 0 auto;
@@ -127,6 +142,53 @@
       line-height: rem(16px);
       text-align: center;
       color: $fontAccentColor;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .first {
+    &__girl {
+      &-img {
+        width: 50%;
+      }
+    }
+
+    &__footer {
+      width: 53%;
+      bottom: -6em;
+      left: unset;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .first {
+    &__badge {
+      font-size: 24px;
+    }
+    &__deco {
+      width: 175px;
+      height: 395px;
+    }
+
+    &__girl {
+      padding-right: 21em;
+      &-img {
+        width: 29%;
+      }
+    }
+
+    &__footer {
+      width: 49%;
+      left: unset;
+      right: 12em;
+
+      .dark {
+        width: 520px;
+        height: 70px;
+        font-size: 25px;
+      }
     }
   }
 }

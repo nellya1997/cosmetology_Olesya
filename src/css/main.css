@@ -351,9 +351,18 @@ html {
   font-size: 14px;
   font-weight: 400;
   color: #453b4b;
-  scrollbar-gutter: stable;
 }
 
+@media (min-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1023px) {
+  html {
+    font-size: 20px;
+  }
+}
 body {
   position: relative;
 }
@@ -663,7 +672,6 @@ body {
 .header .nav {
   transform: translateY(-100vh);
   transition: transform 0.5s;
-  overflow-y: initial;
 }
 .header .nav .container {
   margin: 0 auto;
@@ -679,11 +687,8 @@ body {
   z-index: 2;
   padding-top: 80px;
   transform: translateY(0vh);
-  transition: transform 0.4s;
-  background-image: url("../img/header/background.jpg");
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: cover;
+  transition: transform 0.5s;
+  background: url("../img/header/background.jpg") center/cover no-repeat;
 }
 .header .nav__list {
   height: -moz-max-content;
@@ -745,7 +750,7 @@ body {
   margin: 0 auto;
   width: 69%;
   text-align: center;
-  margin-top: 95px;
+  padding-top: calc(95px - 60 * (100vw - 375px) / 1366);
 }
 .first__title .h1 {
   font-size: 1rem;
@@ -778,18 +783,23 @@ body {
   text-align: center;
   color: #29073e;
 }
-.first__badge span:nth-child(2) {
+.first__badge span:nth-child(3) {
   font-size: 1rem;
   line-height: 1.1428571429rem;
   font-weight: 400;
 }
 .first__deco {
-  width: 115px;
-  height: 285px;
+  width: calc(115px + 115 * (100vw - 375px) / 393);
+  height: calc(285px + 255 * (100vw - 375px) / 393);
   background: url("../img/first/table.png") center/cover no-repeat;
   position: absolute;
   bottom: 0;
   left: 0;
+}
+.first__girl {
+  position: relative;
+  z-index: 1;
+  padding-right: 1em;
 }
 .first__girl picture {
   display: flex;
@@ -797,16 +807,20 @@ body {
   justify-content: flex-end;
   align-items: normal;
 }
-.first__girl picture img {
+.first__girl-img {
   width: 60%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 .first__footer {
   position: absolute;
-  bottom: -7em;
+  bottom: -6em;
   left: 0;
   right: 0;
+  z-index: 1;
+}
+.first__footer .btnsBlock {
+  padding: 0.4em 0em;
 }
 .first__footer .dark {
   margin: 0 auto;
@@ -833,6 +847,41 @@ body {
   color: #8f8d90;
 }
 
+@media (min-width: 767px) {
+  .first__girl-img {
+    width: 50%;
+  }
+  .first__footer {
+    width: 53%;
+    bottom: -6em;
+    left: unset;
+  }
+}
+@media (min-width: 1023px) {
+  .first__badge {
+    font-size: 24px;
+  }
+  .first__deco {
+    width: 175px;
+    height: 395px;
+  }
+  .first__girl {
+    padding-right: 21em;
+  }
+  .first__girl-img {
+    width: 29%;
+  }
+  .first__footer {
+    width: 49%;
+    left: unset;
+    right: 12em;
+  }
+  .first__footer .dark {
+    width: 520px;
+    height: 70px;
+    font-size: 25px;
+  }
+}
 .sertificates {
   padding: 2.5em 0;
 }
@@ -860,6 +909,12 @@ body {
   margin: 0.5em auto;
 }
 
+@media (min-width: 1023px) {
+  .sertificates__slider {
+    margin: 0 auto;
+    width: 75%;
+  }
+}
 .whyMe {
   padding: 3.5em 0;
   position: relative;
@@ -880,7 +935,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2.1em;
 }
 .whyMe__content li {
@@ -936,6 +991,12 @@ body {
   margin: 0.5em auto;
 }
 
+@media (min-width: 1023px) {
+  .reviews__slider {
+    margin: 0 auto;
+    width: 40%;
+  }
+}
 :root {
   --faceSignWidth: 60px;
 }
@@ -1068,11 +1129,33 @@ body {
 }
 .services__consultation .services-list {
   padding-top: 1em;
+  margin: 0 auto;
+  width: 100%;
 }
 
 @media (min-width: 767px) {
   .services .services__face-picture {
     height: 50vh;
+  }
+  .services__guide {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .services .services-list {
+    width: 60%;
+  }
+}
+@media (min-width: 1023px) {
+  .services .btnsBlock {
+    justify-content: center;
+    gap: 5%;
+  }
+  .services__guide {
+    margin: 0 auto;
+    width: 50%;
+  }
+  .services .services-list {
+    width: 38%;
   }
 }
 .results {
@@ -1120,6 +1203,12 @@ body {
   margin: 0.5em auto;
 }
 
+@media (min-width: 1023px) {
+  .results__slider {
+    margin: 0 auto;
+    width: 53%;
+  }
+}
 .faq {
   padding: 25px;
 }
@@ -1261,6 +1350,11 @@ body {
   height: 235px;
 }
 
+@media (min-width: 1023px) {
+  .footer .container {
+    width: 50%;
+  }
+}
 .modalHand__img {
   display: inline-block;
   position: relative;
