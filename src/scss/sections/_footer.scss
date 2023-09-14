@@ -43,3 +43,11 @@
     height: 235px;
   }
 }
+
+@media (min-width: 1023px) {
+  .footer {
+    .container {
+      width: 50%;
+    }
+  }
+}

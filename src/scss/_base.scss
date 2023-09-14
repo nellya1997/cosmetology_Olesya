@@ -28,7 +28,18 @@ html {
   font-weight: 400;
   color: $mainTextColor;
   //хуета:
-  scrollbar-gutter: stable;
+  //scrollbar-gutter: stable;
+}
+
+@media (min-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1023px) {
+  html {
+    font-size: 20px;
+  }
 }
 
 body {

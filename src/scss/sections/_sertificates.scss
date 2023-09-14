@@ -28,3 +28,11 @@
     margin: 0.5em auto;
   }
 }
+
+@media (min-width: 1023px) {
+  .sertificates {
+    &__slider {
+      @include centry(75%);
+    }
+  }
+}

@@ -38,3 +38,11 @@
     margin: 0.5em auto;
   }
 }
+
+@media (min-width: 1023px) {
+  .reviews {
+    &__slider {
+      @include centry(40%);
+    }
+  }
+}

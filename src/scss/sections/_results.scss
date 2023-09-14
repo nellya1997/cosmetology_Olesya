@@ -50,3 +50,11 @@
     margin: 0.5em auto;
   }
 }
+
+@media (min-width: 1023px) {
+  .results {
+    &__slider {
+      @include centry(53%);
+    }
+  }
+}
