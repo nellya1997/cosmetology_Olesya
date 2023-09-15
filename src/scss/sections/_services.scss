@@ -24,7 +24,6 @@
   .services__face {
     position: relative;
     width: max-content;
-    display: block;
     margin: 0 auto;
 
     &-picture {
@@ -124,6 +123,31 @@
         top: 61%;
         left: 13%;
       }
+    }
+  }
+
+  .services__hand {
+    display: inline-block;
+    position: relative;
+
+    button {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background-color: #8569af;
+      border: none;
+      cursor: pointer;
+
+      position: absolute;
+      top: 35%;
+      left: 65%;
+    }
+
+    img {
+      display: block;
+      float: right;
+      width: 90%;
+      object-fit: contain;
     }
   }
 

@@ -190,6 +190,16 @@ window.onload = setTimeout(() => {
   servicesWidth();
 }, 1500);
 
+function switchBtn() {
+  const face = document.querySelector('.services__face');
+  const hand = document.querySelector('.services__hand');
+
+  (function () {
+    face.classList.toggle('hideContent');
+    hand.classList.toggle('hideContent');
+  })();
+}
+
 //faq
 const switchElements = document.querySelectorAll('.faq__switch');
 const imgElements = document.querySelectorAll('.faq__pluse-btn');
@@ -335,29 +345,6 @@ function closeModal() {
 }
 
 /*                           modals                                     */
-const renderHandMain = () => {
-  renderModal();
-  modal.innerHTML = `
-  <div class="modalHand">
-    <div class="modal__close">
-      <span></span>
-      <span></span>
-    </div>
-    <h2 class="h2">Услуги</h2>
-    <div class="btnsBlock">
-      <button class="dark" onclick="renderInjections()">Лицо</button>
-      <button class="light">Руки</button>
-    </div>
-    <div class="modalHand__img">
-      <button class="modalHand__btn" onclick="renderHandMain2()"></button>
-      <img src="./src/img/services/hand.png" alt="мезотерапия" />
-    </div>
-  </div>
-  `;
-
-  const closeBtn = modal.querySelector('.modal__close');
-  closeBtn.addEventListener('click', closeModal);
-};
 
 const renderHandMain2 = () => {
   renderModal();
@@ -860,10 +847,6 @@ const renderLipstherapy = () => {
 (function () {
   const services = document.getElementById('services');
   //btns:
-  const toFace = document.getElementById('toFace');
-  toFace.addEventListener('click', renderInjections);
-  const toHand = document.getElementById('toHand');
-  toHand.addEventListener('click', renderHandMain);
   const toMesotherapy = services.querySelector('.toMesotherapy');
   toMesotherapy.addEventListener('click', renderMesotherapy);
   const toForehead = services.querySelector('.toForehead');
