@@ -190,15 +190,31 @@ window.onload = setTimeout(() => {
   servicesWidth();
 }, 1500);
 
-function switchBtn() {
+(function () {
+  const toFaceBtn = document.getElementById('toFace');
+  const toHandBtn = document.getElementById('toHand');
+
   const face = document.querySelector('.services__face');
   const hand = document.querySelector('.services__hand');
 
-  (function () {
-    face.classList.toggle('hideContent');
-    hand.classList.toggle('hideContent');
-  })();
-}
+  function showFace() {
+    face.classList.remove('hideContent');
+    hand.classList.add('hideContent');
+  }
+
+  toFaceBtn.addEventListener('click', () => {
+    showFace();
+  });
+
+  function showHand() {
+    face.classList.add('hideContent');
+    hand.classList.remove('hideContent');
+  }
+
+  toHandBtn.addEventListener('click', () => {
+    showHand();
+  });
+})();
 
 //faq
 const switchElements = document.querySelectorAll('.faq__switch');
