@@ -1,8 +1,23 @@
 'use strict';
 
+/*                          HEADER                           */
+//'jumping' button due to scrollBar:
+
+const scrollBarWidth = () => {
+  const innerWidth = window.innerWidth;
+  const clientWidth = document.documentElement.clientWidth;
+
+  const width = innerWidth - clientWidth;
+  return width;
+};
+
 //burger-btn
 (function () {
   const burgerBtn = document.querySelector('.burger');
+  const currentPadding = 35;
+  burgerBtn.style.right = `${currentPadding + 'px'}`;
+  console.log(burgerBtn.style.right);
+
   const mobileNav = document.querySelector('.nav');
   const body = document.querySelector('body');
   const header = document.querySelector('.header');
@@ -11,7 +26,15 @@
 
   function closeHeader() {
     burgerBtn.classList.toggle('burger_active');
-
+    (function positionBurgerBtn() {
+      let rightOffset;
+      if (burgerBtn.classList.contains('burger_active')) {
+        rightOffset = `${currentPadding + scrollBarWidth() + 'px'}`;
+      } else {
+        rightOffset = `${currentPadding - scrollBarWidth() + 'px'}`;
+      }
+      burgerBtn.style.right = rightOffset;
+    })();
     mobileNav.classList.toggle('nav_active');
     body.classList.toggle('stop-scroll');
     header.classList.toggle('header_active');
