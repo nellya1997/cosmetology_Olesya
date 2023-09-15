@@ -1147,7 +1147,6 @@ body {
   position: relative;
   width: -moz-max-content;
   width: max-content;
-  display: block;
   margin: 0 auto;
 }
 .services .services__face-picture {
@@ -1224,6 +1223,28 @@ body {
 .services .services__face-btns .toLips {
   top: 61%;
   left: 13%;
+}
+.services .services__hand {
+  display: inline-block;
+  position: relative;
+}
+.services .services__hand button {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #8569af;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 35%;
+  left: 65%;
+}
+.services .services__hand img {
+  display: block;
+  float: right;
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .services__guide {
   border: 1px solid #a79a9a;
@@ -1486,29 +1507,6 @@ body {
     width: 50%;
   }
 }
-.modalHand__img {
-  display: inline-block;
-  position: relative;
-}
-.modalHand__img button {
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background-color: #8569af;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 35%;
-  left: 65%;
-}
-.modalHand img {
-  display: block;
-  float: right;
-  width: 90%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
 .modalHand2 .service-block {
   padding: 1em 0em;
 }
