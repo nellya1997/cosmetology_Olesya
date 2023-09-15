@@ -1,6 +1,51 @@
 'use strict';
 
-/*                          HEADER                           */
+const body = document.querySelector('body');
+/*                          PRELOADER                              */
+
+(function () {
+  const content = [];
+  content[0] = document.querySelector('.header');
+  content[1] = document.querySelector('main');
+  content[2] = document.querySelector('.footer');
+
+  content.forEach((el) => {
+    el.classList.add('hideContent');
+  });
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelector('.preloader').classList.add('preloader_hidden');
+
+      content.forEach((el) => {
+        el.classList.remove('hideContent');
+      });
+    }, 1000);
+  });
+
+  //if (body.children.classList.contains('preloader') && )
+})();
+
+/* auxillary functions which i m going to use in sliders and so on
+function showLoading() {
+  content.forEach((el) => {
+    el.classList.add('hideContent');
+  });
+  document.querySelector('.preloader').classList.remove('preloader_hidden');
+}
+
+function hideLoading() {
+  setTimeout(() => {
+    document.querySelector('.preloader').classList.add('preloader_hidden');
+
+    content.forEach((el) => {
+      el.classList.remove('hideContent');
+    });
+  }, 1000);
+}
+*/
+
+/*                          HEADER                              */
 //'jumping' button due to scrollBar:
 
 const scrollBarWidth = () => {
@@ -16,8 +61,6 @@ const scrollBarWidth = () => {
   const burgerBtn = document.querySelector('.burger');
   const currentPadding = 35;
   burgerBtn.style.right = `${currentPadding + 'px'}`;
-  console.log(burgerBtn.style.right);
-
   const mobileNav = document.querySelector('.nav');
   const body = document.querySelector('body');
   const header = document.querySelector('.header');
@@ -127,9 +170,9 @@ const swiperResults = new Swiper('.results__swiper', {
 const servicesWidth = () => {
   function previousWidthCalc() {
     //I will define line under the button in respect of picture's size which is stabled by 43vh
-    const container = document.querySelector('.services__face');
+    const img = document.querySelector('.services__face');
     //width of the line is 1/4 of the picture height
-    let signWidth = Math.round((container.offsetHeight / 100) * 23);
+    let signWidth = Math.round((img.offsetHeight / 100) * 23);
 
     document.documentElement.style.setProperty(
       '--faceSignWidth',
@@ -137,12 +180,15 @@ const servicesWidth = () => {
     );
   }
 
-  window.onload = previousWidthCalc();
+  previousWidthCalc();
 
   window.addEventListener('resize', previousWidthCalc);
 };
 
-servicesWidth();
+//due to loader shall be hidden in 1000ms after window.loaded so here is a crutch, for services' signs on the face:
+window.onload = setTimeout(() => {
+  servicesWidth();
+}, 1500);
 
 //faq
 const switchElements = document.querySelectorAll('.faq__switch');
@@ -204,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /*                          MODAL                              */
 
-const body = document.querySelector('body');
 const modal = document.getElementById('modal');
 
 /*                       auxiliary                                */
@@ -314,8 +359,6 @@ const renderHandMain = () => {
   closeBtn.addEventListener('click', closeModal);
 };
 
-//renderHandMain();
-
 const renderHandMain2 = () => {
   renderModal();
 
@@ -387,8 +430,6 @@ const renderHandMain2 = () => {
   closeBtn.addEventListener('click', closeModal);
 };
 
-//renderHandMain2();
-
 const renderInjections = () => {
   renderModal();
 
@@ -457,8 +498,6 @@ const renderInjections = () => {
   const closeBtn = modal.querySelector('.modal__close');
   closeBtn.addEventListener('click', closeModal);
 };
-
-//renderInjections();
 
 const renderMasks = () => {
   renderModal();
@@ -576,8 +615,6 @@ const renderMasks = () => {
   closeBtn.addEventListener('click', closeModal);
 };
 
-//renderMasks();
-
 const renderMesotherapy = () => {
   renderModal();
   modal.innerHTML = `
@@ -653,8 +690,6 @@ const renderMesotherapy = () => {
   const closeBtn = modal.querySelector('.modal__close');
   closeBtn.addEventListener('click', closeModal);
 };
-
-//renderMesotherapy();
 
 const renderNosetherapy = () => {
   renderModal();
@@ -745,8 +780,6 @@ const renderNosetherapy = () => {
   closeBtn.addEventListener('click', closeModal);
 };
 
-//renderNosetherapy();
-
 const renderLipstherapy = () => {
   renderModal();
 
@@ -822,8 +855,6 @@ const renderLipstherapy = () => {
   const closeBtn = modal.querySelector('.modal__close');
   closeBtn.addEventListener('click', closeModal);
 };
-
-//renderLipstherapy();
 
 /*                           modals's functions                          */
 (function () {
