@@ -58,12 +58,9 @@
           content: '';
           display: block;
           width: var(--faceSignWidth);
-          //width: 11vh;
           height: 1px;
           background-color: #453b4b;
-
           position: absolute;
-          //left: 30px;
           left: 180%;
           top: -10px;
         }
@@ -74,13 +71,18 @@
           width: 20px;
           height: 1px;
           background-color: #453b4b;
-
           position: absolute;
           left: 24px;
           top: 0;
-
+          -webkit-transform-origin: left;
+          -moz-transform-origin: left;
+          -o-transform-origin: left;
+          -ms-transform-origin: left;
           transform-origin: left;
-
+          -webkit-transform: rotate(330deg);
+          -moz-transform: rotate(330deg);
+          -o-transform: rotate(330deg);
+          -ms-transform: rotate(330deg);
           transform: rotate(330deg);
         }
 
