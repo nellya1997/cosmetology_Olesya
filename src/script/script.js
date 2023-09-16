@@ -445,8 +445,8 @@ const renderInjections = () => {
       </div>
       <h2 class="h2">Услуги</h2>
       <div class="btnsBlock">
-        <button class="dark">Уколы</button>
-        <button class="light" onclick="renderMasks()">Маски</button>
+        <button class="dark"><span>Уколы</span></button>
+        <button class="light" onclick="renderMasks()"><span>Маски</span></button>
       </div>
       
       </div>
@@ -514,8 +514,8 @@ const renderMasks = () => {
       </div>
       <h2 class="h2">Услуги</h2>
       <div class="btnsBlock">
-        <button class="dark" onclick="renderInjections()">Уколы</button>
-        <button class="light">Маски</button>
+        <button class="dark" onclick="renderInjections()"><span>Уколы</span></button>
+        <button class="light"><span>Маски</span></button>
       </div>
       
       </div>

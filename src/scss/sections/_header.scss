@@ -61,9 +61,16 @@
   }
 
   .nav {
+    height: 100vh;
+    padding-top: 80px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 2;
     transform: translateY(-100vh);
-    transition: transform 0.5s;
-    //overflow-y: initial;
+    transition: all 0.6s;
+    background: url('../img/header/background.jpg') center/cover no-repeat;
 
     .container {
       @include centry(79.7%);
@@ -71,16 +78,8 @@
     }
 
     &_active {
-      height: 100vh;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      left: 0px;
-      z-index: 2;
-      padding-top: 80px;
       transform: translateY(0vh);
-      transition: transform 0.5s;
-      background: url('../img/header/background.jpg') center/cover no-repeat;
+      transition: all 0.6s;
     }
 
     &__list {

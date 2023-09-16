@@ -25,6 +25,7 @@
     position: relative;
     width: max-content;
     margin: 0 auto;
+    animation: appearance linear 0.4s;
 
     &-picture {
       display: inline-block;
@@ -129,6 +130,7 @@
   .services__hand {
     display: inline-block;
     position: relative;
+    animation: appearance linear 0.4s;
 
     button {
       width: 23px;
