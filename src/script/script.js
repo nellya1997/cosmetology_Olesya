@@ -217,33 +217,19 @@ window.onload = setTimeout(() => {
 })();
 
 //faq
+// Выбираем все элементы FAQ
 const switchElements = document.querySelectorAll('.faq__switch');
 const imgElements = document.querySelectorAll('.faq__pluse-btn');
 const listElements = document.querySelectorAll('.faq__list');
 
 switchElements.forEach(function (switchElement, index) {
   switchElement.addEventListener('click', function () {
-    toggleList(index);
+    listElements[index].classList.toggle('show');
     imgElements[index].classList.toggle('rotated');
   });
 });
 
-imgElements.forEach(function (imgElement, index) {
-  imgElement.addEventListener('click', function () {
-    toggleList(index);
-    imgElement.classList.toggle('rotated');
-  });
-});
 
-function toggleList(index) {
-  listElements.forEach(function (listElement, listIndex) {
-    if (listIndex === index) {
-      listElement.classList.toggle('show');
-    } else {
-      listElement.classList.remove('show');
-    }
-  });
-}
 document.addEventListener('DOMContentLoaded', function () {
   const faqQuestions = document.querySelectorAll('.faq__question');
   const showMoreButton = document.getElementById('showMoreButton');
