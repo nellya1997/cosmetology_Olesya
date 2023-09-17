@@ -244,13 +244,6 @@ function toggleList(index) {
     }
   });
 }
-
-window.addEventListener('resize', function () {
-  listElements.forEach(function (listElement) {
-    listElement.classList.add('show');
-  });
-});
-
 document.addEventListener('DOMContentLoaded', function () {
   const faqQuestions = document.querySelectorAll('.faq__question');
   const showMoreButton = document.getElementById('showMoreButton');
